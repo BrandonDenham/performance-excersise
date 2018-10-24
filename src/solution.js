@@ -79,6 +79,7 @@ const handleGithubJobsDataResponse = (data) => {
     addInitialSections();
     processJobsResponseData(data);
     $("#next-page").click(() => {
+        $specificJobSection.empty();
         $appContainer.find('table').remove();
         nextPageData.then(processJobsResponseData)
     });
