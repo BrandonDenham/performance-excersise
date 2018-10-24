@@ -69,18 +69,14 @@ const setupClickHandler = () => {
 };
 
 const appendDataToThePage = data => {
-    const perfTimer = PerformanceTimer.create(`Example Timer`).start();
     const timer = MiniPerformance.start(`adding github data to page`);
     $appContainer.append($(`<table></table>`));
     $(`table`).append(`<tr><td>Company</td><td>Title</td><td>Location</td><td>Logo</td></tr>`);
-    perfTimer.setMarker({markerName: `Appended Table Heading`, logMarker: true})
     data.forEach((datum) => {
         $(`table`).append(
             `<tr><td>${datum.company}</td><td><a class="job-title" id="${datum.id}" href="javascript:void(0)">${datum.title}</a></td><td>${datum.location}</td><td><img src="${datum.company_logo}" /></td></tr>`
         );
     });
-    perfTimer.setMarker({markerName: `Appended Table Content`, logMarker: true})
-    perfTimer.end(true);
     timer.end();
     setupScrollHandler();
     setupClickHandler();
