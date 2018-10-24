@@ -106,7 +106,7 @@ const appendDataToThePage = data => {
     $table.append(`<tr><td>Company</td><td>Title</td><td>Location</td><td>Logo</td></tr>`);
     data.forEach((datum) => {
         $table.append(
-            `<tr><td>${datum.company}</td><td>${datum.title}</td><td>${datum.location}</td><td><img src="${datum.company_logo}" /></td></tr>`
+            `<tr><td>${datum.company}</td><td><a class="job-title" id="${datum.id}" href="javascript:void(0)">${datum.title}</a></td><td>${datum.location}</td><td><img src="${datum.company_logo}" /></td></tr>`
         );
     });
     $appContainer.append($table);
